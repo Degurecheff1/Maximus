@@ -1,3 +1,41 @@
+/* --- Global Variables and Base Styles (REQUIRED) --- */
+
+:root {
+    /* Light Mode Variables */
+    --background-color: #ffffff;
+    --text-color: #333333;
+    --primary-color: #007bff; /* Example Blue */
+    --secondary-color: #6c757d; /* Example Gray */
+    --card-background: #f8f9fa;
+    --border-color: #dee2e6;
+}
+
+[data-theme='dark'] {
+    /* Dark Mode Variables */
+    --background-color: #1a1a1a;
+    --text-color: #ffffff;
+    --primary-color: #90b8f8; /* Lighter Blue for Dark Mode */
+    --secondary-color: #adb5bd;
+    --card-background: #2c2c2c;
+    --border-color: #444444;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* You must fill in the rest of the styles for .header, .hero-section, etc. */
+/* ... */
 /* --- Tailor (AI) Section --- */
 .tailor-section {
     text-align: center;
