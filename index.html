@@ -1,25 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Professional Portfolio</title>
+    <title>Siyabonga Mdhluli Professional Portfolio</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
 
     <header class="header">
-        <div class="logo">Your Name</div>
+        <div class="logo">Siyabonga Mdhluli</div>
         <nav class="desktop-nav">
             <a href="#about">About</a>
             <a href="#projects">Projects</a>
             <a href="#experience">Experience</a>
             <a href="#contact">Contact</a>
+            <a href="#tailor">Tailor (AI)</a>
         </nav>
         <div class="controls">
+            <!-- Updated icon to ensure the moon icon is visible on load -->
             <button id="theme-toggle" aria-label="Toggle light and dark mode">
-                <i class="fas fa-moon"></i>
+                <i class="fas fa-sun" id="theme-icon"></i>
             </button>
             <button class="menu-toggle" aria-label="Open menu">
                 <i class="fas fa-bars"></i>
@@ -32,46 +34,67 @@
         <a href="#projects">Projects</a>
         <a href="#experience">Experience</a>
         <a href="#contact">Contact</a>
-        </nav>
+        <a href="#tailor">Tailor (AI)</a>
+    </nav>
 
     <main>
         <section id="hero" class="hero-section">
             <div class="hero-content">
                 <div class="text-area">
-                    <h1>Hi, I'm **[Your Name]**</h1>
-                    <p class="tagline">**[Your Professional Title/Tagline]**</p>
-                    <p>A brief, compelling introduction about your expertise and what you are passionate about.</p>
+                    <h1>Hi, I'm Siyabonga Mdhluli</h1>
+                    <p class="tagline">Computer Lab Facilitator & IT Support Enthusiast</p>
+                    <p>Dedicated professional with proven skills in technical support, administrative functions, and resource management. I am passionate about optimizing technology and processes to create efficient, secure, and conducive learning environments.</p>
                     <a href="Siyabonga_Mdhluli_CV.pdf" download class="cta-button">Download CV</a>
                 </div>
                 <div class="image-area">
-                    <img src="Profileimage.jpg" alt="Your Profile Picture" class="profile-pic">
+                    <!-- Placeholder image used since 'Profileimage.jpg' is not available -->
+                    <img src="https://placehold.co/250x250/007bff/ffffff?text=SM" alt="Siyabonga Mdhluli Profile Picture" class="profile-pic" onerror="this.onerror=null; this.src='https://placehold.co/250x250/007bff/ffffff?text=SM';">
                 </div>
             </div>
         </section>
 
         <section id="about" class="content-section">
             <h2>🌍 About Me</h2>
-            <p>Tell your story here. Focus on your journey, skills, and professional values. This is a great section for beginners to easily update!</p>
+            <p>My background combines strong administrative skills gained at Duduza Primary School with hands-on technical support and resource management as a Computer Lab Facilitator at Click Learning. I hold Public Management certifications (N4-N6) from Sedibeng Tvet College, which has equipped me with an advanced understanding of governance, financial planning, and organizational administration. I am a team player with excellent communication and basic IT troubleshooting skills, always seeking to promote responsible technology use and maintain optimal system functionality.</p>
+            <p><strong>Key Skills:</strong> Ms Office suite, Canva, Communication, Team Work, Independent Task Execution, Basic IT Troubleshooting.</p>
         </section>
 
         <section id="projects" class="content-section">
-            <h2>🛠️ Projects</h2>
+            <h2>🛠️ Projects / Key Achievements</h2>
             <div class="project-grid">
                 <div class="project-card">
-                    <h3>Project Title 1</h3>
-                    <p>A short description of the project and your role. Include a link to the GitHub repo or live demo.</p>
+                    <h3>Computer Lab Asset Management</h3>
+                    <p>Successfully managed and maintained computer lab assets at Click Learning, ensuring optimal functionality of hardware and software through regular updates, resource optimization, and robust safety and security measures.</p>
                 </div>
+                <div class="project-card">
+                    <h3>SA-SAMS Data Management</h3>
+                    <p>Tasked with general admin functions, record keeping, and **data capturing using the SA-SAMS system** during a Volunteer Administrator role at Duduza PS, demonstrating competency in essential administrative software.</p>
                 </div>
+                <div class="project-card">
+                    <h3>Public Management N6 Completion</h3>
+                    <p>Completed Public Management N6 subjects, gaining an **advanced understanding of governance, public sector financial planning, and the operational principles** of public entities.</p>
+                </div>
+            </div>
         </section>
         
         <section id="experience" class="content-section">
             <h2>💼 Experience</h2>
             <div class="experience-item">
-                <h3>Job Title - Company Name</h3>
-                <p class="date">Start Date - End Date</p>
+                <h3>Computer Lab Facilitator - Click Learning, Iphamiseng PS</h3>
+                <p class="date">April 2025 - Present</p>
                 <ul>
-                    <li>Key achievement 1.</li>
-                    <li>Key achievement 2.</li>
+                    <li>Managed and maintained computer lab assets, ensuring optimal functionality of hardware and software through regular updates and robust safety measures.</li>
+                    <li>Provided first-line technical support, resolving and reporting technical issues within the lab and fostering a seamless user experience.</li>
+                    <li>Taught basic computer skills and supported learning, promoting responsible technology use and enhancing users' digital competencies.</li>
+                </ul>
+            </div>
+            <div class="experience-item">
+                <h3>Volunteer Administrator - Duduza PS</h3>
+                <p class="date">September 2023</p>
+                <ul>
+                    <li>Tasked with general admin functions, record keeping, compiling leave forms, and data capturing using SA-SAMS.</li>
+                    <li>Assisted the finance officer with record keeping, compiling cash books, cash journals, and petty cash records using Excel.</li>
+                    <li>Assisted with compiling agendas and minutes for various meetings.</li>
                 </ul>
             </div>
         </section>
@@ -79,21 +102,29 @@
         <section id="contact" class="content-section contact-section">
             <h2>📨 Get In Touch</h2>
             <p>Let's build something great together. Reach out via email or connect on social media.</p>
-            <p class="email-link">Email: <a href=siyabongahmdhluli1@gmail.com>**this.very.email@example.com**</a></p>
+            <!-- Using the email from the CV -->
+            <p class="email-link">Email: <a href="mailto:siyabongahmdhluli1@gmail.com">siyabongahmdhluli1@gmail.com</a></p>
             
             <div class="social-icons">
-                <a href="https://www.linkedin.com/in/siyabonga-mdhluli-aba5062aa" target="_blank" aria-label="LinkedIn Profile">
+                <!-- Using the LinkedIn link from the CV -->
+                <a href="www.linkedin.com/in/siyabonga-mdhluli-aba5062aa" target="_blank" aria-label="LinkedIn Profile">
                     <i class="fab fa-linkedin fa-2x"></i>
                 </a>
-                </div>
+                <!-- GitHub link added as a common professional profile -->
+                 <a href="#" target="_blank" aria-label="GitHub Profile">
+                    <i class="fab fa-github fa-2x"></i>
+                </a>
+            </div>
         </section>
 
     </main>
 
     <footer>
-        <p>&copy; 2024 Siyabonga Mdhluli. All rights reserved.</p>
+        <p>&copy; 2025 Siyabonga Mdhluli. All rights reserved.</p>
     </footer>
 
+    <!-- The script file needs to be created to make the site interactive -->
     <script src="script.js"></script>
 </body>
 </html>
+
