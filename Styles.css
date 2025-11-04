@@ -1,0 +1,439 @@
+/* -------------------------------------------------------------------
+   1. GLOBAL & VARIABLE DEFINITIONS
+   ------------------------------------------------------------------- */
+
+:root {
+    /* Default (Light) Mode Variables */
+    --background-color: #f7f7f7;
+    --text-color: #212529;
+    --primary-color: #007bff; /* Accent color for buttons/links */
+    --secondary-color: #6c757d;
+    --header-background: #ffffff;
+    --card-background: #ffffff;
+    --border-color: #e9ecef;
+    --shadow-color: rgba(0, 0, 0, 0.05);
+}
+
+/* Dark Mode Overrides */
+[data-theme='dark'] {
+    --background-color: #1a1a1a;
+    --text-color: #e9ecef;
+    --primary-color: #4a90e2; 
+    --secondary-color: #adb5bd;
+    --header-background: #2c2c2c;
+    --card-background: #2c2c2c;
+    --border-color: #3b3b3b;
+    --shadow-color: rgba(255, 255, 255, 0.05);
+}
+
+/* Base Styles & Typography Reset */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    transition: background-color 0.3s, color 0.3s;
+    min-height: 100vh;
+}
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+a:hover {
+    color: var(--primary-color);
+    text-decoration: underline;
+}
+
+h1, h2, h3 {
+    margin-bottom: 0.5em;
+    font-weight: 700;
+    color: var(--text-color);
+}
+
+h1 { font-size: 2.5em; }
+h2 { font-size: 2em; }
+h3 { font-size: 1.5em; }
+
+/* -------------------------------------------------------------------
+   2. HEADER & NAVIGATION
+   ------------------------------------------------------------------- */
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+    background-color: var(--header-background);
+    box-shadow: 0 2px 4px var(--shadow-color);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--primary-color);
+}
+
+.desktop-nav a {
+    margin-left: 1.5rem;
+    font-weight: 600;
+    padding: 0.5rem 0;
+    border-bottom: 2px solid transparent;
+}
+
+.desktop-nav a:hover {
+    border-bottom: 2px solid var(--primary-color);
+    text-decoration: none;
+}
+
+.controls {
+    display: flex;
+    align-items: center;
+}
+
+#theme-toggle, .menu-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+    color: var(--text-color);
+    margin-left: 1rem;
+    padding: 0.5rem;
+    border-radius: 50%;
+    transition: background-color 0.2s;
+}
+
+#theme-toggle:hover, .menu-toggle:hover {
+    background-color: var(--border-color);
+}
+
+/* Mobile Menu */
+.mobile-menu {
+    display: none; /* Hidden by default */
+    flex-direction: column;
+    background-color: var(--header-background);
+    position: absolute;
+    width: 100%;
+    top: 60px; /* Adjust based on header height */
+    box-shadow: 0 4px 6px var(--shadow-color);
+    z-index: 999;
+}
+
+.mobile-menu a {
+    padding: 1rem 5%;
+    border-bottom: 1px solid var(--border-color);
+    text-align: center;
+    font-weight: 500;
+}
+
+.mobile-menu.active {
+    display: flex;
+}
+
+/* Hide desktop nav and show mobile toggle on small screens */
+@media (max-width: 768px) {
+    .desktop-nav {
+        display: none;
+    }
+    .menu-toggle {
+        display: block; /* Ensure it is visible */
+    }
+}
+
+/* Hide mobile toggle and show desktop nav on large screens */
+@media (min-width: 769px) {
+    .menu-toggle {
+        display: none;
+    }
+}
+
+
+/* -------------------------------------------------------------------
+   3. MAIN CONTENT & SECTIONS
+   ------------------------------------------------------------------- */
+
+main {
+    padding: 2rem 0;
+}
+
+.content-section {
+    max-width: 1100px;
+    margin: 0 auto 3rem;
+    padding: 2rem 5%;
+    border-bottom: 1px solid var(--border-color);
+}
+
+/* --- Hero Section --- */
+.hero-section {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+    background-color: var(--card-background);
+    border-bottom: none;
+}
+
+.hero-content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 3rem;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 5%;
+}
+
+.text-area {
+    flex: 2;
+}
+
+.text-area h1 {
+    font-size: 3em;
+    margin-bottom: 0.2em;
+}
+
+.tagline {
+    font-size: 1.5em;
+    font-weight: 400;
+    color: var(--secondary-color);
+    margin-bottom: 1em;
+}
+
+.image-area {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.profile-pic {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 5px solid var(--primary-color);
+    box-shadow: 0 8px 16px var(--shadow-color);
+}
+
+/* Call to Action Button */
+.cta-button {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    margin-top: 1.5rem;
+    background-color: var(--primary-color);
+    color: white;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: background-color 0.2s, transform 0.2s;
+}
+
+.cta-button:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+    text-decoration: none;
+}
+
+
+/* --- Project Grid --- */
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 1.5rem;
+}
+
+.project-card {
+    background-color: var(--card-background);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px var(--shadow-color);
+    transition: transform 0.3s ease;
+    border: 1px solid var(--border-color);
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 16px var(--shadow-color);
+}
+
+.project-card h3 {
+    color: var(--primary-color);
+}
+
+/* --- Experience List --- */
+.experience-item {
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    border-left: 5px solid var(--primary-color);
+    background-color: var(--card-background);
+    border-radius: 4px;
+}
+
+.experience-item h3 {
+    margin-top: 0;
+}
+
+.experience-item ul {
+    list-style: disc;
+    margin-left: 1.5rem;
+    margin-top: 0.5rem;
+    padding: 0;
+}
+
+.date {
+    font-style: italic;
+    color: var(--secondary-color);
+    margin-bottom: 1em;
+    display: block;
+}
+
+
+/* --- Contact Section --- */
+.social-icons a {
+    font-size: 2rem;
+    margin-right: 1.5rem;
+    color: var(--secondary-color);
+}
+
+.social-icons a:hover {
+    color: var(--primary-color);
+}
+
+.email-link {
+    font-size: 1.1em;
+    margin-bottom: 1em;
+}
+
+.email-link a {
+    font-weight: bold;
+}
+
+/* -------------------------------------------------------------------
+   4. FOOTER
+   ------------------------------------------------------------------- */
+
+footer {
+    text-align: center;
+    padding: 1.5rem 5%;
+    border-top: 1px solid var(--border-color);
+    background-color: var(--card-background);
+    color: var(--secondary-color);
+    font-size: 0.9em;
+}
+
+/* -------------------------------------------------------------------
+   5. AI CHAT SECTION (Kept your original styles, now using defined vars)
+   ------------------------------------------------------------------- */
+
+.tailor-section {
+    text-align: center;
+}
+
+.ai-interaction {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+#ai-input {
+    padding: 10px;
+    width: 60%;
+    max-width: 500px;
+    border: 2px solid var(--primary-color);
+    border-radius: 5px 0 0 5px;
+    background-color: var(--card-background);
+    color: var(--text-color);
+}
+
+.ai-interaction button {
+    padding: 10px 20px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.ai-interaction button:hover {
+    background-color: #0056b3;
+}
+
+.ai-response-box {
+    margin-top: 20px;
+    padding: 15px;
+    min-height: 50px;
+    background-color: var(--card-background);
+    border-radius: 5px;
+    text-align: left;
+    box-shadow: 0 2px 8px var(--shadow-color);
+    border: 1px solid var(--border-color);
+}
+
+
+/* -------------------------------------------------------------------
+   6. RESPONSIVENESS (Mobile Optimization)
+   ------------------------------------------------------------------- */
+
+@media (max-width: 768px) {
+    /* Hero Section Stacks Content */
+    .hero-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 2rem;
+    }
+
+    .text-area {
+        order: 2; /* Text moves below image */
+    }
+
+    .image-area {
+        order: 1; /* Image moves above text */
+    }
+
+    .profile-pic {
+        width: 180px;
+        height: 180px;
+    }
+    
+    .text-area h1 {
+        font-size: 2em;
+    }
+    
+    .tagline {
+        font-size: 1.2em;
+    }
+
+    .content-section {
+        padding: 1.5rem 5%;
+    }
+
+    /* AI Chat */
+    #ai-input {
+        width: 70%;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Further Mobile Adjustments */
+    h1 { font-size: 2.2em; }
+    h2 { font-size: 1.6em; }
+    h3 { font-size: 1.2em; }
+    
+    .header {
+        padding: 0.75rem 5%;
+    }
+}
+
