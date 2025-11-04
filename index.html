@@ -15,9 +15,11 @@
             <a href="#about">About</a>
             <a href="#projects">Projects</a>
             <a href="#experience">Experience</a>
+            <a href="#contact">Contact</a>
+            <a href="#tailor">Tailor (AI)</a>
         </nav>
         <div class="controls">
-            <!-- Updated icon to ensure the moon icon is visible on load -->
+            <!-- Added id="theme-icon" here for JS to correctly switch between sun/moon -->
             <button id="theme-toggle" aria-label="Toggle light and dark mode">
                 <i class="fas fa-sun" id="theme-icon"></i>
             </button>
@@ -32,6 +34,7 @@
         <a href="#projects">Projects</a>
         <a href="#experience">Experience</a>
         <a href="#contact">Contact</a>
+        <a href="#tailor">Tailor (AI)</a>
     </nav>
 
     <main>
@@ -45,15 +48,29 @@
                 </div>
                 <div class="image-area">
                     <!-- Placeholder image used since 'Profileimage.jpg' is not available -->
-                    <img src="Profileimage.jpg" alt="Siyabonga Mdhluli Profile Picture" class="profile-pic" onerror="this.onerror=null; this.src='https://placehold.co/250x250/007bff/ffffff?text=SM';">
+                    <img src="https://placehold.co/250x250/007bff/ffffff?text=SM" alt="Siyabonga Mdhluli Profile Picture" class="profile-pic" onerror="this.onerror=null; this.src='https://placehold.co/250x250/007bff/ffffff?text=SM';">
                 </div>
             </div>
         </section>
 
         <section id="about" class="content-section">
             <h2>🌍 About Me</h2>
-            <p>My background combines strong administrative skills gained at Duduza Primary School with hands-on technical support and resource management as a Computer Lab Facilitator at Click Learning. I hold Public Management certifications (N4-N6) from Sedibeng Tvet College, which has equipped me with an advanced understanding of governance, financial planning, and organizational administration. I am a team player with excellent communication and basic IT troubleshooting skills, always seeking to promote responsible technology use and maintain optimal system functionality.</p>
-            <p><strong>Key Skills:</strong> Ms Office suite, Canva, Communication, Team Work, Independent Task Execution, Basic IT Troubleshooting.</p>
+            <p>My background combines strong administrative skills gained at Duduza Primary School with hands-on technical support and resource management as a Computer Lab Facilitator at Click Learning. I am a team player with excellent communication and basic IT troubleshooting skills.</p>
+            
+            <!-- Accordion/Drop Bar implemented using <details> -->
+            <details class="about-details">
+                <summary>Click here to view my Educational and Professional Summary</summary>
+                <div class="details-content">
+                    <p>I hold Public Management certifications (N4-N6) from Sedibeng Tvet College, which has equipped me with an advanced understanding of governance, financial planning, and organizational administration. My professional values center around continuous learning, meticulous code quality, and collaboration.</p>
+                    <h3>Key Skills</h3>
+                    <ul>
+                        <li>Ms Office suite & Canva</li>
+                        <li>Communication & Team Work</li>
+                        <li>Independent Task Execution</li>
+                        <li>Basic IT Troubleshooting</li>
+                    </ul>
+                </div>
+            </details>
         </section>
 
         <section id="projects" class="content-section">
@@ -61,7 +78,7 @@
             <div class="project-grid">
                 <div class="project-card">
                     <h3>Computer Lab Asset Management</h3>
-                    <p>Successfully managed and maintained computer lab assets at Click Learning, ensuring optimal functionality of hardware and software through regular updates, resource optimization, and robust safety and security measures.</p>
+                    <p>Successfully managed and maintained computer lab assets at Click Learning, ensuring optimal functionality of hardware and software through regular updates and robust safety and security measures.</p>
                 </div>
                 <div class="project-card">
                     <h3>SA-SAMS Data Management</h3>
@@ -96,6 +113,19 @@
             </div>
         </section>
 
+        <!-- Added the AI section heading based on the previous conversation and CSS -->
+        <section id="tailor" class="content-section tailor-section">
+            <h2>✨ Tailor (AI) Section</h2>
+            <p>Use the AI assistant to ask questions about my portfolio, skills, or experience!</p>
+            <div class="ai-interaction">
+                <input type="text" id="ai-input" placeholder="Ask a question about Siyabonga's work..." disabled>
+                <button disabled>Ask</button>
+            </div>
+            <div class="ai-response-box">
+                <p>AI response will appear here.</p>
+            </div>
+        </section>
+
         <section id="contact" class="content-section contact-section">
             <h2>📨 Get In Touch</h2>
             <p>Let's build something great together. Reach out via email or connect on social media.</p>
@@ -107,16 +137,20 @@
                 <a href="https://www.linkedin.com/in/siyabonga-mdhluli-aba5062aa" target="_blank" aria-label="LinkedIn Profile">
                     <i class="fab fa-linkedin fa-2x"></i>
                 </a>
+                <!-- GitHub link added as a common professional profile -->
+                 <a href="#" target="_blank" aria-label="GitHub Profile">
+                    <i class="fab fa-github fa-2x"></i>
+                </a>
             </div>
         </section>
 
     </main>
 
     <footer>
-        <p>&copy; 2025 Siyabonga Mdhluli. All rights reserved.</p>
+        <p>&copy; 2024 Siyabonga Mdhluli. All rights reserved.</p>
     </footer>
 
-    <!-- The script file needs to be created to make the site interactive -->
+    <!-- Script tag loads the functionality -->
     <script src="script.js"></script>
 </body>
 </html>

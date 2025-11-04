@@ -1,57 +1,84 @@
 document.addEventListener('DOMContentLoaded', () => {
+    const htmlElement = document.documentElement;
     const themeToggle = document.getElementById('theme-toggle');
+    const themeIcon = document.getElementById('theme-icon');
     const menuToggle = document.querySelector('.menu-toggle');
     const mobileMenu = document.querySelector('.mobile-menu');
-    const body = document.body;
 
     // --- 1. Light/Dark Mode Toggle ---
-    
-    // Check local storage for theme preference
+
+    // Function to update the icon based on the current theme
+    function updateThemeIcon(theme) {
+        if (theme === 'dark') {
+            themeIcon.classList.remove('fa-sun');
+            themeIcon.classList.add('fa-moon');
+        } else {
+            themeIcon.classList.remove('fa-moon');
+            themeIcon.classList.add('fa-sun');
+        }
+    }
+
+    // Initialize theme from local storage or default to light
     const savedTheme = localStorage.getItem('theme') || 'light';
-    body.setAttribute('data-theme', savedTheme);
+    htmlElement.setAttribute('data-theme', savedTheme);
     updateThemeIcon(savedTheme);
 
+    // Theme toggle click listener
     themeToggle.addEventListener('click', () => {
-        const currentTheme = body.getAttribute('data-theme');
+        const currentTheme = htmlElement.getAttribute('data-theme');
         const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-        
-        body.setAttribute('data-theme', newTheme);
+
+        htmlElement.setAttribute('data-theme', newTheme);
         localStorage.setItem('theme', newTheme);
         updateThemeIcon(newTheme);
     });
 
-    function updateThemeIcon(theme) {
-        if (theme === 'dark') {
-            themeToggle.innerHTML = '<i class="fas fa-sun"></i>'; // Sun icon for light mode switch
-        } else {
-            themeToggle.innerHTML = '<i class="fas fa-moon"></i>'; // Moon icon for dark mode switch
-        }
-    }
 
+    // --- 2. Mobile Menu Toggle (Functioning with .active class) ---
 
-    // --- 2. Mobile Menu Toggle ---
+    // Toggle menu visibility and icon
     menuToggle.addEventListener('click', () => {
-        mobileMenu.classList.toggle('open');
-        // Change icon from bars to X
+        mobileMenu.classList.toggle('active');
         const icon = menuToggle.querySelector('i');
-        if (mobileMenu.classList.contains('open')) {
+
+        if (mobileMenu.classList.contains('active')) {
             icon.classList.remove('fa-bars');
-            icon.classList.add('fa-times');
+            icon.classList.add('fa-times'); // 'X' icon
         } else {
             icon.classList.remove('fa-times');
-            icon.classList.add('fa-bars');
+            icon.classList.add('fa-bars'); // Hamburger icon
         }
     });
 
-    // Close mobile menu when a link is clicked
+    // Close mobile menu when a link is clicked (for seamless navigation)
     document.querySelectorAll('.mobile-menu a').forEach(link => {
         link.addEventListener('click', () => {
-            mobileMenu.classList.remove('open');
-            menuToggle.querySelector('i').classList.remove('fa-times');
-            menuToggle.querySelector('i').classList.add('fa-bars');
+            mobileMenu.classList.remove('active');
+            // Reset menu icon
+            const icon = menuToggle.querySelector('i');
+            icon.classList.remove('fa-times');
+            icon.classList.add('fa-bars');
         });
     });
 
+    // --- 3. Simple Scroll Animations (Optional Enhancement) ---
+    // Added a small animation that fades in sections as you scroll down.
+    const sections = document.querySelectorAll('.content-section');
+
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.1 // Trigger when 10% of the section is visible
+    });
+
+    sections.forEach(section => {
+        section.classList.add('fade-in-section'); // Add base class for transition
+        observer.observe(section);
+    });
 });
 
-// Removed the sendToAI() function for simplification.

@@ -132,6 +132,7 @@ h3 { font-size: 1.5em; }
     top: 60px; /* Adjust based on header height */
     box-shadow: 0 4px 6px var(--shadow-color);
     z-index: 999;
+    /* Use 'active' class from JS to show/hide */
 }
 
 .mobile-menu a {
@@ -142,7 +143,7 @@ h3 { font-size: 1.5em; }
 }
 
 .mobile-menu.active {
-    display: flex;
+    display: flex; /* Show when 'active' class is added by JS */
 }
 
 /* Hide desktop nav and show mobile toggle on small screens */
@@ -176,6 +177,18 @@ main {
     margin: 0 auto 3rem;
     padding: 2rem 5%;
     border-bottom: 1px solid var(--border-color);
+}
+
+/* --- Section Fade-In Animation --- */
+.fade-in-section {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in-section.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 /* --- Hero Section --- */
@@ -243,6 +256,61 @@ main {
     background-color: #0056b3;
     transform: translateY(-2px);
     text-decoration: none;
+}
+
+/* --- Details Dropdown (About Me Section) --- */
+.about-details {
+    margin-top: 1.5rem;
+    padding: 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    background-color: var(--card-background);
+}
+
+.about-details summary {
+    font-weight: 600;
+    cursor: pointer;
+    list-style: none; /* Hide default triangle icon */
+    padding: 0.5rem 0;
+    color: var(--primary-color);
+    display: block;
+    position: relative;
+    padding-left: 1.5rem; /* Space for custom icon */
+}
+
+/* Custom icon for the summary */
+.about-details summary::before {
+    content: '\f0da'; /* Font Awesome right arrow */
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: transform 0.2s ease;
+}
+
+.about-details[open] summary::before {
+    content: '\f0d7'; /* Font Awesome down arrow */
+    transform: translateY(-50%) rotate(90deg); /* Rotate for open state */
+}
+
+.about-details .details-content {
+    padding-top: 1rem;
+    border-top: 1px solid var(--border-color);
+    margin-top: 1rem;
+    /* Basic content styling */
+}
+
+.about-details .details-content h3 {
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.about-details .details-content ul {
+    list-style: disc;
+    margin-left: 1.5rem;
+    padding: 0;
 }
 
 
@@ -334,7 +402,7 @@ footer {
 }
 
 /* -------------------------------------------------------------------
-   5. AI CHAT SECTION (Kept your original styles, now using defined vars)
+   5. AI CHAT SECTION
    ------------------------------------------------------------------- */
 
 .tailor-section {
